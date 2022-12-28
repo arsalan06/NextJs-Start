@@ -11,9 +11,9 @@
   display: inherit;
   justify-content: center;
   align-items: center;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
+  font-size: 1.8rem;
+  /* max-width: var(--max-width); */
+  /* width: 100%; */
   z-index: 2;
   font-family: var(--font-mono);
 }
@@ -155,13 +155,13 @@
   font-weight: 700;
   cursor: pointer;
 }
-.blogs {
-  margin-top: 20px;
-}
-.blogsItems {
-  padding: 10px;
-}
 
+.myimg{
+  border-radius: 10px;
+}
+.imgWraper{
+  padding: 30px 10px;
+}
 /* .mainnav:has(li) {
   background-color: red;
 } */

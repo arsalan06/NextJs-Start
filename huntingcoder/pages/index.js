@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 
@@ -22,8 +21,12 @@ export default function Home() {
       </style> */}
       <style jsx>
         {`
-          .mySpan {
-            color: red;
+          h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+          }
+          h3 {
+            font-size: 20px;
           }
         `}
       </style>
@@ -34,27 +37,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className={styles.mainnav}>
-        <ul>
-          <Link href={"/"}>
-            <li>Home</li>
-          </Link>
-          <Link href={"/about"}>
-            <li>About</li>
-          </Link>
-          <Link href={"/contact"}>
-            <li>Contact</li>
-          </Link>
-          <Link href={"/blogs"}>
-            <li>Blogs</li>
-          </Link>
-        </ul>
-      </nav>
+      
       <main className={styles.main}>
         <div className={styles.description}>
           <h1>Hunting Coder</h1>
         </div>
-        <span className="mySpan">Hunting Coder</span>
+
+        <div className={styles.imgWraper}>
+          <Image
+            src="/homeimg.avif"
+            alt="home"
+            height={150}
+            width={200}
+            className={styles.myimg}
+          />
+        </div>
+        <p>A blog for hunting coder by hunting coder</p>
         <div className={styles.blogs}>
           <div className={styles.blogsItems}>
             <h2>Famous Bologs</h2>
