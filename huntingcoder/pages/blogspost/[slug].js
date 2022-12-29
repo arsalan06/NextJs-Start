@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Blogs.module.css";
 import { useRouter } from "next/router";
-function Slug() {
-  const router = useRouter();
-  const { slug } = router.query;
+import axios from "axios";
+function Slug({ data }) {
+  // const router = useRouter();
+  // const { slug } = router.query;
+  console.log(data);
+  const [blog, setBlog] = useState(data);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:3000/api/getBlogs?slug=${slug}`)
+  //     .then((res) => {
+  //       setBlog(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   return (
     <div className={styles.container}>
-      <h1>Title of the page {slug}</h1>
+      <h1>{blog.title}</h1>
+      <h2>{blog.author}</h2>
       <hr />
-      <p>
-        Currently, if you set a revalidate time of 60, all visitors will see the
-        same generated version of your site for one minute. The only way to
-        invalidate the cache was from someone visiting that page after the
-        minute had passed. You can now manually purge the Next.js cache for a
-        specific page on-demand.
-      </p>
+      <p>{blog.content}</p>
     </div>
   );
 }
+export async function getServerSideProps(context) {
+  // Fetch data from external API
 
+  console.log(context.query.slug);
+
+  const res = await fetch(`http://localhost:3000/api/getBlogs?slug=${context.query.slug}`);
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+}
 export default Slug;

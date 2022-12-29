@@ -7,7 +7,6 @@ export default function handler(req, res) {
     if (err) {
       res.status(401).json({ error: "something went wrong" });
     }
-    console.log(req.query);
     res.status(200).json(JSON.parse(data));
   });
   // res.status(200).json({ name: "John Doe" });

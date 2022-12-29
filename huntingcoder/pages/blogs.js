@@ -2,25 +2,25 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Blogs.module.css";
 import axios from "axios";
-function Blogs() {
-  const [blogs, setBlogs] = useState([]);
-  useEffect(() => {
-    // fetch("http://localhost:3000/api/blogs")
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((parse) => {
-    //     console.log(parse);
-    //   });
-    axios
-      .get("http://localhost:3000/api/blogs")
-      .then((res) => {
-        setBlogs(res.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+function Blogs({ data }) {
+  const [blogs, setBlogs] = useState(data?.data);
+  // useEffect(() => {
+  //   // fetch("http://localhost:3000/api/blogs")
+  //   //   .then((res) => {
+  //   //     return res.json();
+  //   //   })
+  //   //   .then((parse) => {
+  //   //     console.log(parse);
+  //   //   });
+  //   axios
+  //     .get("http://localhost:3000/api/blogs")
+  //     .then((res) => {
+  //       setBlogs(res.data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
   return (
     <>
       <style jsx>
@@ -71,4 +71,13 @@ function Blogs() {
   );
 }
 
+// This gets called on every request
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:3000/api/blogs`);
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+}
 export default Blogs;
