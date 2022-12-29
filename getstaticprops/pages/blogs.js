@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Blogs.module.css";
 import axios from "axios";
-import * as fs from "fs";
-function Blogs({ allBlogs }) {
-  const [blogs, setBlogs] = useState(allBlogs?.data);
+function Blogs({ data }) {
+  const [blogs, setBlogs] = useState(data?.data);
   // useEffect(() => {
   //   // fetch("http://localhost:3000/api/blogs")
   //   //   .then((res) => {
@@ -72,29 +71,13 @@ function Blogs({ allBlogs }) {
   );
 }
 
-export async function getStaticProps(context) {
-  let data = await fs.promises.readdir("blogdata");
-  let myfile;
-  let allBlogs = [];
-  for (let index = 0; index < data.length; index++) {
-    const item = data[index];
-    console.log(item);
-    myfile = await fs.promises.readFile("blogdata/" + item, "utf-8");
-    allBlogs.push(JSON.parse(myfile));
-  }
-
-  return {
-    props: { allBlogs }, // will be passed to the page component as props
-  };
-}
-
 // This gets called on every request
-// export async function getStaticProps(context) {
-//   // Fetch data from external API
-//   const res = await fetch(`http://localhost:3000/api/blogs`);
-//   const data = await res.json();
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:3000/api/blogs`);
+  const data = await res.json();
 
-//   // Pass data to the page via props
-//   return { props: { data } };
-// }
-// export default Blogs;
+  // Pass data to the page via props
+  return { props: { data } };
+}
+export default Blogs;

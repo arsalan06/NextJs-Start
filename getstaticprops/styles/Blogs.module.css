@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  padding: 1rem 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.blogs {
+  margin-top: 20px;
+}
+.blogsItems {
+  padding: 10px;
+}
