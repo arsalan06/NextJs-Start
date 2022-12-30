@@ -37,21 +37,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <h1>Hunting Coder</h1>
-        </div>
+      kjkjhhvhvjhvjh
 
-        <div className={styles.imgWraper}>
-          <Image
-            src="/homeimg.avif"
-            alt="home"
-            height={150}
-            width={200}
-            className={styles.myimg}
-          />
-        </div>
+      <main className={styles.main}>
+        <h1>Hunting Coder</h1>
         <p>A blog for hunting coder by hunting coder</p>
         <div className={styles.blogs}>
           <div className={styles.blogsItems}>

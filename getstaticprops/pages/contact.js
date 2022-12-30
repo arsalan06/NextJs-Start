@@ -17,7 +17,7 @@ function Contact() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.container}>
           <span className={styles.fieldContainer}>
-            <label for="firstName" className={styles.label}>
+            <label htmlFor="firstName" className={styles.label}>
               First Name
             </label>
             <br />
@@ -32,7 +32,7 @@ function Contact() {
             />
           </span>
           <span className={styles.fieldContainer}>
-            <label for="lastName" className={styles.label}>
+            <label htmlFor="lastName" className={styles.label}>
               Last name
             </label>
             <br />
@@ -47,7 +47,7 @@ function Contact() {
             />
           </span>
           <span className={styles.fieldContainer}>
-            <label for="lastName" className={styles.label}>
+            <label htmlFor="phoneNumber" className={styles.label}>
               Phone Number
             </label>
             <br />
@@ -63,7 +63,7 @@ function Contact() {
           </span>
 
           <span className={styles.fieldContainer}>
-            <label for="lastName" className={styles.label}>
+            <label htmlFor="email" className={styles.label}>
               Email
             </label>
             <br />
