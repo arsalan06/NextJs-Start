@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.fieldContainer {
+  margin-top: 10px;
+}
+.label {
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.field {
+  width: 230px;
+  height: 35px;
+  border-radius: 10px;
+  padding-left: 10px;
+  border: 1px solid lightgrey;
+}
+.button {
+  width: 230px;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(253, 48, 48);
+}
